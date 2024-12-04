@@ -18,8 +18,13 @@ renderer.setSize(
     window.innerWidth,
     window.innerHeight,
 );
+// html stuff
 
+let counter = 0;
 document.body.appendChild( renderer.domElement );
+
+const textCounter = document.getElementById("info");
+textCounter.innerHTML = `Counter: ${counter}`;
 
 // setting up cubes
 
@@ -65,6 +70,7 @@ function onClick(event) {
         intersects[i].object.position.x = generateRandNum(-3,3);
         intersects[i].object.position.y = generateRandNum(-3,3);
         counter++;
+        textCounter.innerHTML = `Counter: ${counter}`;
         console.log(counter);
         
     };
@@ -75,10 +81,10 @@ function onClick(event) {
 window.addEventListener('mousemove', onMouseMove);
 window.addEventListener('click', onClick);
 
-let counter = 0;
+
 
 // game loop
-function animate() {
+function animate() { 
     requestAnimationFrame(animate);
 
     // let isClicked = false
